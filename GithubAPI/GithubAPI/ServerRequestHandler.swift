@@ -15,6 +15,7 @@ class ServerRequestHandler {
     var graphQLEndpoint = "https://api.github.com/graphql"
     var apollo : ApolloClient?
     var viewer : Viewer?
+    var commitHistory : [CommitHistoryNode] = []
     
     public static let sharedInstance : ServerRequestHandler = {
         let instance = ServerRequestHandler()
@@ -60,5 +61,79 @@ class ServerRequestHandler {
             completion("Success")
         }
     }
+    
+    func getRepositoryCommitHistory(completion: @escaping (String) -> Void) {
+        
+        guard let apollo = self.apollo else {
+            completion("Error")
+            return
+        }
+        
+        apollo.fetch(query: GetRepositoryCommitHistoryQuery()) { (result, error) in
+            
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                completion("Error: \(error.localizedDescription)")
+                return
+            }
+    
+            guard let repository = result?.data?.repository else {
+                print("Error returning information - repo")
+                return
+            }
+            
+            guard let ref = repository.ref else {
+                print("Error returning information - ref")
+                return
+            }
+            
+            guard let commits = ref.target.asCommit else {
+                print("Error returning information - commits")
+                return
+            }
+
+            guard let edges = commits.history.edges else {
+                print("Error returning information - edges")
+                return
+            }
+            
+            self.commitHistory = []
+            
+            for node in edges {
+                if let _node = node?.node {
+                    var dictionary : [String : Any] = [:]
+                    dictionary["messageHeadline"] = _node.messageHeadline
+                    dictionary["oid"] = _node.oid
+                    dictionary["message"] = _node.message
+
+                    if let _author = _node.author {
+                        var authorDictionary : [String : Any] = [:]
+                        
+                        if let _name = _author.name {
+                            authorDictionary["name"] = _name
+                        }
+                        
+                        if let _date = _author.date {
+                            authorDictionary["date"] = _date
+                        }
+                        
+                        if let _email = _author.email {
+                            authorDictionary["email"] = _email
+                        }
+                        
+                        dictionary["author"] = authorDictionary
+                    }
+                    
+                    let commitNode = CommitHistoryNode(dictionary: dictionary)
+                    self.commitHistory.append(commitNode)
+                }
+            }
+            
+            completion("Success")
+
+        }
+        
+    }
+    
     
 }

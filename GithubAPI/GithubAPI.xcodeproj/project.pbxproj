@@ -12,6 +12,8 @@
 		D004F6422287BC1600ED37EE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004F6412287BC1600ED37EE /* API.swift */; };
 		D004F64422887DE600ED37EE /* SecurityToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004F64322887DE600ED37EE /* SecurityToken.swift */; };
 		D004F6472288819500ED37EE /* Viewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004F6462288819500ED37EE /* Viewer.swift */; };
+		D004F64922888E1700ED37EE /* GetRepositoryCommitHistory.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D004F64822888E1600ED37EE /* GetRepositoryCommitHistory.graphql */; };
+		D004F64B2288939400ED37EE /* CommitHistoryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D004F64A2288939400ED37EE /* CommitHistoryNode.swift */; };
 		D010C2AE2284BF0200560D71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010C2AD2284BF0200560D71 /* AppDelegate.swift */; };
 		D010C2B02284BF0200560D71 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D010C2AF2284BF0200560D71 /* MainViewController.swift */; };
 		D010C2B32284BF0200560D71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D010C2B12284BF0200560D71 /* Main.storyboard */; };
@@ -55,6 +57,8 @@
 		D004F6412287BC1600ED37EE /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D004F64322887DE600ED37EE /* SecurityToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityToken.swift; sourceTree = "<group>"; };
 		D004F6462288819500ED37EE /* Viewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewer.swift; sourceTree = "<group>"; };
+		D004F64822888E1600ED37EE /* GetRepositoryCommitHistory.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetRepositoryCommitHistory.graphql; sourceTree = "<group>"; };
+		D004F64A2288939400ED37EE /* CommitHistoryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitHistoryNode.swift; sourceTree = "<group>"; };
 		D010C2AA2284BF0200560D71 /* GithubAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D010C2AD2284BF0200560D71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D010C2AF2284BF0200560D71 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				D004F6462288819500ED37EE /* Viewer.swift */,
+				D004F64A2288939400ED37EE /* CommitHistoryNode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 		D010C2AC2284BF0200560D71 /* GithubAPI */ = {
 			isa = PBXGroup;
 			children = (
+				D004F64822888E1600ED37EE /* GetRepositoryCommitHistory.graphql */,
 				D004F6452288818400ED37EE /* Models */,
 				D004F6412287BC1600ED37EE /* API.swift */,
 				D0BAF3D72287BB1900F1CF39 /* GetViewer.graphql */,
@@ -302,6 +308,7 @@
 			files = (
 				D0BAF3D82287BB1900F1CF39 /* schema.public.graphql in Resources */,
 				D010C2B82284BF0500560D71 /* LaunchScreen.storyboard in Resources */,
+				D004F64922888E1700ED37EE /* GetRepositoryCommitHistory.graphql in Resources */,
 				D010C2B52284BF0500560D71 /* Assets.xcassets in Resources */,
 				D010C2B32284BF0200560D71 /* Main.storyboard in Resources */,
 				D0BAF3D92287BB1900F1CF39 /* GetViewer.graphql in Resources */,
@@ -446,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D004F64B2288939400ED37EE /* CommitHistoryNode.swift in Sources */,
 				D010C2B02284BF0200560D71 /* MainViewController.swift in Sources */,
 				D004F64422887DE600ED37EE /* SecurityToken.swift in Sources */,
 				D0F3E47C2287B3B000DC29FD /* ServerRequestHandler.swift in Sources */,

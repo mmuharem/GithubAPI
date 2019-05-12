@@ -1,0 +1,29 @@
+query GetRepositoryCommitHistory {
+  repository(owner:"mmuharem", name:"GithubAPI") {
+    id
+    ref(qualifiedName:"master") {
+      target {
+        ... on Commit {
+          id
+          history(first: 25) {
+            pageInfo {
+              hasNextPage
+            }
+            edges {
+              node {
+                messageHeadline
+                oid
+                message
+                author {
+                  name
+                  email
+                  date
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
