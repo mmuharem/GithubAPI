@@ -1,0 +1,26 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '11.0'
+use_frameworks!
+
+def main_pods
+  pod 'ReachabilitySwift'
+  pod 'Willow', '~> 5.0'
+  pod 'JGProgressHUD'
+  pod 'Apollo'
+  pod 'Alamofire', '~> 4.7'
+end
+
+target 'GithubAPI' do
+    #project 'GithubAPI.xcodeproj'
+
+    main_pods
+
+    target 'GithubAPITests' do
+      inherit! :search_paths
+    end
+
+    target 'GithubAPIUITests' do
+      inherit! :search_paths
+    end
+
+end

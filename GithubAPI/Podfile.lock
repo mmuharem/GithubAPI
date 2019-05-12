@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (4.8.1)
+  - Apollo (0.9.5):
+    - Apollo/Core (= 0.9.5)
+  - Apollo/Core (0.9.5)
+  - JGProgressHUD (2.0.3)
+  - ReachabilitySwift (4.3.0)
+  - Willow (5.1.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - Apollo
+  - JGProgressHUD
+  - ReachabilitySwift
+  - Willow (~> 5.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Apollo
+    - JGProgressHUD
+    - ReachabilitySwift
+    - Willow
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Apollo: 19caf3246d292bbb69ecad1bd098661f78222aba
+  JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
+  Willow: ad7f75939db11f7d56a97df2ca04405815e73125
+
+PODFILE CHECKSUM: d6bebbb476100a708de37663a4d8f66c7c665252
+
+COCOAPODS: 1.5.3
