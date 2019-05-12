@@ -10,6 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    @IBOutlet var tableView: UITableView!
+    
     override func viewWillAppear(_ animated: Bool) {
         ServerRequestHandler.sharedInstance.getUserName { (response) in
             print(response)
@@ -17,10 +19,10 @@ class MainViewController: UIViewController {
     }
 
     override func viewDidLoad() {
+    
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
 
 }
-
