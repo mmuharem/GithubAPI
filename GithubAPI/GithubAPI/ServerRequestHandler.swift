@@ -69,6 +69,9 @@ class ServerRequestHandler {
             return
         }
         
+        _ = apollo.clearCache()
+        
+        
         apollo.fetch(query: GetRepositoryCommitHistoryQuery()) { (result, error) in
             
             if let error = error {
