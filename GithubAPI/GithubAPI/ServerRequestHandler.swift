@@ -14,6 +14,7 @@ class ServerRequestHandler {
     
     var graphQLEndpoint = "https://api.github.com/graphql"
     var apollo : ApolloClient?
+    var viewer : Viewer?
     
     public static let sharedInstance : ServerRequestHandler = {
         let instance = ServerRequestHandler()
@@ -21,8 +22,6 @@ class ServerRequestHandler {
     }()
     
     public func setApollo() {
-        
-        print("Setting apollo with token: \(SecurityToken.sharedInstance.token)")
         
         let apollo2 : ApolloClient = {
             let configuration = URLSessionConfiguration.default
@@ -44,7 +43,21 @@ class ServerRequestHandler {
         }
         
         apollo.fetch(query: GetViewerQuery()) { (result, error) in
-            dump(result)
+            
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                completion("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let viewer = result?.data?.viewer else {
+                print("Error returning information")
+                return
+            }
+            
+            self.viewer  = Viewer(dictionary: ["login" : viewer.login])
+            
+            completion("Success")
         }
     }
     

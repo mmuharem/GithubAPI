@@ -115,6 +115,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="mainUserLabel" destination="12U-3x-Z1e" id="YZ2-Vo-gmI"/>
                         <outlet property="tableView" destination="Gck-Yx-1Pc" id="lpX-Oo-AeF"/>
                     </connections>
                 </viewController>

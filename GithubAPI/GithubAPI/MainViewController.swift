@@ -12,9 +12,15 @@ class MainViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var mainUserLabel: UILabel!
+    
     override func viewWillAppear(_ animated: Bool) {
         ServerRequestHandler.sharedInstance.getUserName { (response) in
-            print(response)
+            guard let viewer = ServerRequestHandler.sharedInstance.viewer?.login else {
+                return
+            }
+            
+            self.mainUserLabel.text = "\(viewer) Commit History"
         }
     }
 
